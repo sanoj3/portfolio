@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact Message</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a2a;
+            color: #ffffff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1a0a3e, #0a0a2a);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(155, 77, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(155, 77, 255, 0.2);
+        }
+        .header h1 {
+            background: linear-gradient(135deg, #9b4dff, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(155, 77, 255, 0.2);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #c084fc;
+            border: 1px solid rgba(155, 77, 255, 0.3);
+            margin-top: 10px;
+        }
+        .message-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 4px solid #9b4dff;
+        }
+        .field {
+            margin: 15px 0;
+        }
+        .field-label {
+            color: #9b4dff;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        .field-value {
+            color: #ffffff;
+            padding: 5px 0;
+            font-size: 1rem;
+        }
+        .field-value a {
+            color: #9b4dff;
+            text-decoration: none;
+        }
+        .field-value a:hover {
+            text-decoration: underline;
+        }
+        .message-content {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(155, 77, 255, 0.2);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+        }
+        .footer .highlight {
+            color: #9b4dff;
+        }
+        .action-buttons {
+            text-align: center;
+            margin: 25px 0;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #9b4dff, #6c2bd9);
+            padding: 10px 30px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(155, 77, 255, 0.3);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #9b4dff;
+            color: #9b4dff;
+        }
+        .btn-outline:hover {
+            background: #9b4dff;
+            color: white;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(155, 77, 255, 0.3), transparent);
+            margin: 20px 0;
+        }
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .message-box {
+                padding: 15px;
+            }
+            .meta-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>✦ New Message Received</h1>
+            <div class="subtitle">Someone just reached out from your portfolio</div>
+            <span class="badge">📩 Contact Form Submission</span>
+        </div>
+        
+        <!-- Message Details -->
+        <div class="message-box">
+            <div class="field">
+                <div class="field-label">👤 Name</div>
+                <div class="field-value"><strong>{{ name }}</strong></div>
+            </div>
+            
+            <div class="field">
+                <div class="field-label">📧 Email</div>
+                <div class="field-value">
+                    <a href="mailto:{{ email }}">{{ email }}</a>
+                </div>
+            </div>
+            
+            <div class="field">
+                <div class="field-label">📌 Subject</div>
+                <div class="field-value">{{ subject }}</div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="field">
+                <div class="field-label">💬 Message</div>
+                <div class="message-content">{{ message|linebreaks }}</div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="mailto:{{ email }}?subject=Re: {{ subject }}" class="btn">
+                <i class="fas fa-reply"></i> Reply Now
+            </a>
+            <a href="#" class="btn btn-outline" style="margin-left: 10px;">
+                View Portfolio
+            </a>
+        </div>
+        
+        <!-- Meta Info -->
+        <div class="meta-info">
+            <span>📅 {{ now|date:"F j, Y, g:i A" }}</span>
+            <span>🌐 Sent from Portfolio Website</span>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                This message was sent from your <span class="highlight">Purple Dimension Portfolio</span>.<br>
+                Reply directly to <span class="highlight">{{ email }}</span> to respond.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.7rem;">
+                ✦ This is an automated notification ✦
+            </p>
+        </div>
+    </div>
+</body>
+</html>
